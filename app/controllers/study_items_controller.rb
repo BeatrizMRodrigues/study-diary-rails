@@ -40,6 +40,12 @@ class StudyItemsController < ApplicationController
         redirect_to @study_item
     end
 
+    def destroy
+        set_study_item
+        @study_item.destroy
+        redirect_to root_path
+    end
+
     private
 
     def set_study_item

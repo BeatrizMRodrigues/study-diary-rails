@@ -1,5 +1,8 @@
 <%= @study_item.title %>
-<%#= link_to 'Editar', edit_study_item_path(@study_item) %>
+<%= link_to 'Editar', edit_study_item_path(@study_item) %>
+
+<%= link_to 'Apagar', study_item_path(@study_item), method: :delete, data: {confirm: 'Quer apagar esta tarefa?'} %>
+
 <% if @study_item.status? %>
   Feito
 <% else %>
