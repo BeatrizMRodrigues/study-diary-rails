@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_223425) do
+ActiveRecord::Schema.define(version: 2021_03_14_001737) do
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+  end
 
   create_table "study_items", force: :cascade do |t|
     t.string "title"
-    t.string "category"
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_study_items_on_category_id"
   end
 
+  add_foreign_key "study_items", "categories"
 end

@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <%= render 'shared/nav' %>
+    <div class='container'>
+    <% if alert %>
+    <div class='alert alert-warning'>
+      <% alert %>
+      </div>
+      <% end %>
+    <% if notice %>
+    <div class='alert alert-info'>
+      <% notice %>
+      </div>
+      <% end %>
     <%= yield %>
+    </div>
+    <%= render 'footer' %>
   </body>
 </html>
